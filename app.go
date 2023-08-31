@@ -93,10 +93,10 @@ func (a *App) WindowIsShow() bool {
 
 func (a *App) Show(data ...any) {
 	a.show = true
-	runtime.EventsEmit(a.ctx, "show", data)
 	runtime.WindowSetSize(a.ctx, Width, Height)
-	runtime.WindowShow(a.ctx)
 	runtime.WindowCenter(a.ctx)
+	runtime.WindowShow(a.ctx)
+	runtime.EventsEmit(a.ctx, "show", data)
 }
 
 func (a *App) ToFocus() {

@@ -1,10 +1,11 @@
-code.rocketnine.space/tslocum/desktop v0.1.5 h1:GXZpPo8KH8M24Juu0F/UTfXgOnya0MAAnCQByBpFGz4=
 code.rocketnine.space/tslocum/desktop v0.1.5/go.mod h1:6IwP59rJ44vga/frr123meFdpWU0xMZlTq8gcOhVKGI=
 github.com/bep/debounce v1.2.1 h1:v67fRdBA9UQu2NhLFXrSg0Brw7CexQekrBwDMM8bzeY=
 github.com/bep/debounce v1.2.1/go.mod h1:H8yggRPQKLUhUoqrJC1bO2xNya7vanpDl7xR3ISbCJ0=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/eric-song-nop/desktop v0.1.0 h1:pFQgQ0wuBfpEBKxxRZKUGhmrcIxwLtvWtpUYRwYG2Yo=
+github.com/eric-song-nop/desktop v0.1.0/go.mod h1:3vrU5FqeOSbaMIMog3zdz7b4RISxz9PGFU3c63woM7A=
 github.com/fzdwx/iter v0.0.0-20230511075109-0afee9319312 h1:365D7TIhAiKJQmCwWauvN5zfwFefyXICyi/bgWfsI24=
 github.com/fzdwx/iter v0.0.0-20230511075109-0afee9319312/go.mod h1:Z3Qmt8lMUUP2dyDnzDSOLJwL3jBG/SuX/dnGcm30f/U=
 github.com/go-ole/go-ole v1.2.6 h1:/Fpf6oFPoeFik9ty7siob0G6Ke8QvQEuVcuChpwXzpY=
