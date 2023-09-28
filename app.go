@@ -93,10 +93,10 @@ func (a *App) WindowIsShow() bool {
 
 func (a *App) Show(data ...any) {
 	a.show = true
-	runtime.WindowSetSize(a.ctx, Width, Height)
-	runtime.WindowCenter(a.ctx)
-	runtime.WindowShow(a.ctx)
 	runtime.EventsEmit(a.ctx, "show", data)
+	runtime.WindowSetSize(a.ctx, Width, Height)
+	runtime.WindowShow(a.ctx)
+	runtime.WindowCenter(a.ctx)
 }
 
 func (a *App) ToFocus() {
@@ -117,19 +117,6 @@ func (a *App) RunApplication(name string, runType string, cmd string, term bool)
 	applications.AddHistory(a.ctx, name, runType, cmd, term)
 	go func() {
 		a.Hide()
-		cmd = strings.ReplaceAll(cmd, "%u", "") // TODO 支持从 input 获取参数
-		cmd = strings.ReplaceAll(cmd, "%F", "")
-		if term { // TODO 支持自定义终端
-			if _, err := execabs.LookPath("wezterm"); err == nil {
-				command := execabs.Command("wezterm", "start", "sh", "-c", cmd)
-				command.Run()
-				return
-			}
-			if _, err := execabs.LookPath("konsole"); err == nil {
-				execabs.Command("konsole", "-e", cmd).Run()
-				return
-			}
-		}
 		execabs.Command("sh", "-c", cmd).Run()
 	}()
 }

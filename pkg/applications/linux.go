@@ -134,27 +134,3 @@ func GetHistory(ctx context.Context) (*RunHistory, error) {
 
 	return history, nil
 }
-
-func mapEntryToApplication(history *RunHistory) func(entry *desktop.Entry) *Application {
-	var appMap map[string]RunHistoryItem = nil
-	if len(history.Apps) > 0 {
-		appMap = iter.Stream(history.Apps).ToMap(func(item RunHistoryItem) string {
-			return item.Name
-		})
-	}
-
-	return func(entry *desktop.Entry) *Application {
-		a := &Application{
-			Name:     entry.Name,
-			Exec:     entry.Exec,
-			Icon:     entry.Icon,
-			Terminal: entry.Terminal,
-		}
-		if appMap != nil {
-			app := appMap[a.Name]
-			a.Count = app.Count
-			a.LastRunTime = app.LastRunTime
-		}
-		return a
-	}
-}

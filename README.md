@@ -10,7 +10,7 @@ An extensible linux application launcher
 go install github.com/wailsapp/wails/v2/cmd/wails@v2.6.0
 git clone https://github.com/fzdwx/launcher.git
 cd launcher
-wails build
+wails build  
 ./build/bin/launcher
 ```
 
