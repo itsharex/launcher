@@ -12,6 +12,7 @@ import (
 	"launcher/pkg/extensions"
 	"launcher/pkg/translate"
 	"strings"
+	"time"
 )
 
 // App struct
@@ -97,6 +98,9 @@ func (a *App) Show(data ...any) {
 	runtime.WindowSetSize(a.ctx, Width, Height)
 	runtime.WindowShow(a.ctx)
 	runtime.WindowCenter(a.ctx)
+	time.AfterFunc(50*time.Millisecond, func() {
+		runtime.WindowShow(a.ctx)
+	})
 }
 
 func (a *App) ToFocus() {
