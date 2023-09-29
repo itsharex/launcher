@@ -117,6 +117,8 @@ func (a *App) RunApplication(name string, runType string, cmd string, term bool)
 	applications.AddHistory(a.ctx, name, runType, cmd, term)
 	go func() {
 		a.Hide()
+		cmd = strings.ReplaceAll(cmd, "%u", "")
+		cmd = strings.ReplaceAll(cmd, "%F", "")
 		execabs.Command("sh", "-c", cmd).Run()
 	}()
 }
