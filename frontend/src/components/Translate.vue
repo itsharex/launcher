@@ -8,7 +8,7 @@ import {useMagicKeys, whenever} from "@vueuse/core";
 import {useViewEvent} from "../composables/useViewEvent";
 import {GetClipText, Hide, SetClipText} from "../../wailsjs/go/main/App";
 import {computed, onMounted, ref, watch} from "vue";
-import {useCommandEvent, Command, useCommandState} from "@fzdwx/launcher-api";
+import {Command, useCommandEvent, useCommandState} from "@fzdwx/launcher-api";
 import {View} from "../utils";
 import {GoogleTranslateResp} from "../types";
 import {getLanguageName, translate} from "../common/translate";
@@ -18,6 +18,7 @@ import {useViewState} from "../composables/useViewState";
 import IconTranslator from "../icon/IconTranslator.vue";
 import CheckMark from "../icon/CheckMark.vue";
 import Info from "../icon/Info.vue";
+import {EventsOn} from "../../wailsjs/runtime";
 
 const {escape} = useMagicKeys()
 const {emitter} = useViewEvent();
@@ -92,6 +93,10 @@ onMounted(async () => {
     await reload()
     await refreshTranslate()
   })();
+})
+
+EventsOn('show', () => {
+  reload()
 })
 
 const reload = async () => {
