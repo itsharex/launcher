@@ -75,7 +75,7 @@ func translate(text, from, to string, withVerification bool, tries int, delay ti
 	var r *http.Response
 
 	for tries > 0 {
-		r, err = http.Get(u.String())
+		r, err = getproxy().Get(u.String())
 		if err != nil {
 			if err == http.ErrHandlerTimeout {
 				return "", errors.New("timeout")
@@ -99,4 +99,10 @@ func translate(text, from, to string, withVerification bool, tries int, delay ti
 	}
 
 	return string(raw), nil
+}
+
+func getproxy() *http.Client {
+	return &http.Client{Transport: &http.Transport{
+		Proxy: http.ProxyFromEnvironment,
+	}}
 }
